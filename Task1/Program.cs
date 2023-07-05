@@ -13,9 +13,7 @@ double[,] CreateArrD2(int rows, int cols)
     {
         for (int j = 0; j < arrayD2.GetLength(1); j++)
         {
-            arrayD2[i, j] = ((double)new Random().Next(-9, 9) * 1.2);   // заполнение вещественными числами
-            // if (arrayD2[i, j] == 0)
-            //     arrayD2[i, j] = arrayD2[i + 1, j + 1];
+            arrayD2[i, j] = ((double)new Random().Next(-9, 9) * 1.2 + 1);   // заполнение вещественными числами +1 чтобы небыло 0
         }
     }
     return arrayD2;
