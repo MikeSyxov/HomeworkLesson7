@@ -14,7 +14,7 @@ int[,] CreateArrD2(int rows, int cols)
     {
         for (int j = 0; j < arrayD2.GetLength(1); j++)
         {
-            arrayD2[i, j] = new Random().Next(1, 9); 
+            arrayD2[i, j] = new Random().Next(1, 9);
         }
     }
     return arrayD2;
@@ -26,7 +26,7 @@ void ShowArrayD2(int[,] array)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            System.Console.Write($"{array[i, j]:F1}\t");
+            System.Console.Write($"{array[i, j]}\t");
         }
         System.Console.WriteLine();
     }
@@ -45,6 +45,25 @@ int ReadInt(string message)
     return 0;
 }
 
+double MidValueOfEachColumn(int[,] array)   // среднеарефметическое столбцов
+{
+    double sum = 0;
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            sum = sum + array[i, j];
+        }
+        System.Console.WriteLine($"сумма столбца {sum}. Среднее арифметическое столбца = {((double)sum)/array.GetLength(0):f1}");
+        sum = 0;
+    }
+    return sum;
+}
+
 int rows = ReadInt("Введите число строк");
 int columns = ReadInt("Введите число столбцов");
-ShowArrayD2(CreateArrD2(rows, columns));
+int[,] array = CreateArrD2(rows, columns);
+
+ShowArrayD2(array);
+MidValueOfEachColumn(array);
